@@ -7,61 +7,61 @@
 
 ## Notação de Grafo de Fluxo
 
-(1) Início <br>
-&nbsp; &nbsp; &nbsp; | <br>
-&nbsp; &nbsp; &nbsp; v <br>
-(2) conectarBD() <br>
-&nbsp;  | &nbsp; &nbsp; &nbsp; \ <br>
-&nbsp;  | &nbsp; &nbsp; &nbsp; &nbsp; \ Falha na conexão <br>
-&nbsp;  | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \ <br>
-&nbsp;  | &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v <br>
-&nbsp;  | &nbsp;&nbsp; &nbsp; &nbsp; (3) catch conectarBD <br>
-&nbsp;  | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | <br>
-&nbsp;  | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v <br>
-&nbsp;  | &nbsp; &nbsp; &nbsp; &nbsp; Retorna null <br>
-&nbsp;  | <br>
-&nbsp;  v <br>
-(4) Monta SQL <br>
-&nbsp;  | <br>
-&nbsp;  v <br>
-(5) Executa query <br>
-&nbsp;  | &nbsp; &nbsp; &nbsp; \ <br>
-&nbsp;  | &nbsp; &nbsp; &nbsp; &nbsp; \ Erro ao executar <br>
-&nbsp;  | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \ <br>
-&nbsp;  | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v <br>
-&nbsp;  | &nbsp; &nbsp; &nbsp; &nbsp; (6) catch consulta <br>
-&nbsp;  | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | <br>
-&nbsp;  | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v <br>
-&nbsp;  | &nbsp; &nbsp; &nbsp; &nbsp; Retorna false <br>
-&nbsp;  | <br>
-&nbsp;  v <br>
-(7) rs.next? <br>
-&nbsp;  | &nbsp; &nbsp; &nbsp; \ <br>
-&nbsp;  | &nbsp; &nbsp; &nbsp; &nbsp; \ NÃO <br>
-&nbsp;  | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; \ <br>
-&nbsp;  | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; v <br>
-&nbsp;  | &nbsp; &nbsp; &nbsp; &nbsp; Retorna false <br>
-&nbsp;  | <br>
- SIM <br>
-&nbsp;  v <br>
-(8) nome = rs.getString() <br>
-&nbsp;  | <br>
-&nbsp;  v <br>
-return true <br>
-
+```
+(1) Início
+ |
+ v
+(2) conectarBD()
+ |\
+ | \ Falha na conexão
+ |  \
+ |   v
+ |  (3) catch conectarBD
+ |   |
+ |   v
+ |   return null
+ |
+ v
+(4) Monta SQL
+ |
+ v
+(5) Executa query
+ |\
+ | \ Erro ao executar
+ |  \
+ |   v
+ |  (6) catch consulta
+ |   |
+ |   v
+ |   return false
+ |
+ v
+(7) rs.next?
+ |\
+ | \ NÃO
+ |  \
+ |   v
+ |   return false
+ |
+ |SIM
+ |
+ v
+(8) nome = rs.getString()
+ |
+ v
+return true
+```
 
 ## Complexidade Ciclomática
-
-Fórmula:
-
-V(G) = E - N + 2
-
+```
 Nós identificados = 9
 Arestas = 10
 
+V(G) = E - N + 2
 V(G) = 10 - 9 + 2 = 3
+```
 
-**Complexidade ciclomática = 3**
+*Complexidade ciclomática = 3*
 
 ## Caminhos Básicos
 
